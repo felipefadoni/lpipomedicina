@@ -1,0 +1,5 @@
+---
+  deployment:
+    task:
+      - export DEPLOYPATH=/home/ipomaiscom/public_html/medicina
+      - /bin/cp -R * $DEPLOYPATH
