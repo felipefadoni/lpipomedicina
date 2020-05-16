@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pré-Vestibular IPO+ Medicina</title>
+    <meta
+      name="description"
+      content="Pré-Vestibular IPO+ Medicina, A ESCOLA MAIS PREPARADA DE VÁRZEA GRANDE PARA A SUA APROVAÇÃO NO ENEM."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="canonical" href="http://medicina.ipomais.com.br/" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Pré-Vestibular IPO+ Medicina" />
+    <meta
+      property="og:description"
+      content="Pré-Vestibular IPO+ Medicina, A ESCOLA MAIS PREPARADA DE VÁRZEA GRANDE PARA A SUA APROVAÇÃO NO ENEM."
+    />
+    <meta property="og:url" content="http://medicina.ipomais.com.br/" />
+    <meta property="og:site_name" content="Pré-Vestibular IPO+ Medicina" />
+    <meta
+      property="og:image"
+      content="http://medicina.ipomais.com.br/assets/images/fachada-ipo-mais.png"
+    />
+    <meta property="og:image:width" content="921" />
+    <meta property="og:image:height" content="655" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:description"
+      content="Pré-Vestibular IPO+ Medicina, A ESCOLA MAIS PREPARADA DE VÁRZEA GRANDE PARA A SUA APROVAÇÃO NO ENEM."
+    />
+    <meta name="twitter:title" content="Pré-Vestibular IPO+ Medicina" />
+    <meta
+      name="twitter:image"
+      content="http://medicina.ipomais.com.br/assets/images/fachada-ipo-mais.png"
+    />
+
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Z6HBT6EEP7"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+
+      gtag('config', 'G-Z6HBT6EEP7');
+    </script>
+
+    <script>
+      $(document).ready(function () {
+        $('#formDados').submit(function (event) {
+          event.preventDefault();
+          $.post('mail.php', $('#formDados').serialize(), function (data) {
+            var response = JSON.parse(data);
+            alert(response.message);
+            if (response.code === 0) {
+              $('#formDados').trigger('reset');
+            }
+          });
+        });
+
+        var SPMaskBehavior = function (val) {
+            return val.replace(/\D/g, '').length === 11
+              ? '(00) 00000-0000'
+              : '(00) 0000-00009';
+          },
+          spOptions = {
+            onKeyPress: function (val, e, field, options) {
+              field.mask(SPMaskBehavior.apply({}, arguments), options);
+            }
+          };
+
+        $('#celular').mask(SPMaskBehavior, spOptions);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="header-total">
+      <div class="bg-azul-degrade">
+        <div class="dados-info-texto-vestigular">
+          <h2>
+            A ESCOLA MAIS <br />
+            PREPARADA DE <br />
+            <strong>VÁRZEA GRANDE</strong> <br />
+            PARA A SUA <br />
+            APROVAÇÃO <br />
+            NO <strong>ENEM</strong>.
+          </h2>
+          <h5>MATRÍCULAS ABERTAS</h5>
+          <h6>PRÉ-VESTIBULAR</h6>
+          <h1>IPO+ MEDICINA</h1>
+        </div>
+        <div class="imagem-ipo-mais">
+          <img src="assets/images/aluna-ipo.png" alt="" />
+          <div class="border-diagonal"></div>
+        </div>
+      </div>
+    </div>
+    <div class="total-form">
+      <div class="center-form">
+        <h3>Vagas Limitadas!</h3>
+        <h6>Preencha o cadastro para garantir a sua vaga:</h6>
+
+        <form id="formDados">
+          <div class="center-form-dados">
+            <div class="row">
+              <div class="simple-col">
+                <input
+                  type="text"
+                  name="nome"
+                  id="nome"
+                  placeholder="Nome"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="simple-col">
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="E-mail"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="two-col">
+                <input
+                  type="text"
+                  name="celular"
+                  id="celular"
+                  placeholder="Celular"
+                  required
+                />
+              </div>
+              <div class="two-col">
+                <select required name="periodo" id="periodo">
+                  <option value="">Selecione o período</option>
+                  <option value="Integral">Integral</option>
+                  <option value="Matutino">Matutino</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="simple-col">
+                <button type="submit">ENVIAR PRÉ-MATRÍCULA</button>
+                <p>
+                  Atenção: Entraremos em contato pelo número cadastrado para
+                  finalizar a matrícula.
+                </p>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="meio-valores-material">
+      <div class="valores-e-data">
+        <div class="center-valor-data">
+          <div class="row-valores">
+            <div class="valores-cols">
+              <h4>MATUTINO</h4>
+              <p>(7h às 11h)</p>
+              <div class="borda-valor">
+                <h5>R$</h5>
+                <h2>620</h2>
+                <h6>,00</h6>
+              </div>
+            </div>
+            <div class="valores-cols">
+              <h4>INTEGRAL</h4>
+              <p>(7h às 11h e 13h às 17h)</p>
+              <div class="borda-valor">
+                <h5>R$</h5>
+                <h2>890</h2>
+                <h6>,00</h6>
+              </div>
+            </div>
+          </div>
+          <div class="row-data-inicio">
+            <h3>INÍCIO DAS AULAS:</h3>
+            <h2>18/05</h2>
+          </div>
+        </div>
+      </div>
+
+      <div class="material-infos">
+        <div class="center-material">
+          <div class="cols-materiais">
+            <div class="info-material">
+              <h3>
+                Material didático <br />
+                de primeira<br />
+                qualidade!
+              </h3>
+              <h4>Editora Dynâmico</h4>
+            </div>
+          </div>
+          <div class="cols-materiais">
+            <div class="imagem-material">
+              <img
+                src="assets/images/livro.png"
+                alt="Imagem livro Editora Dynâmico"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="meio-video">
+      <h2>
+        SAIBA PORQUE ESCOLHER O <br />
+        IPO+ COLÉGIO & CONCURSOS:
+      </h2>
+
+      <iframe
+        id="ytplayer"
+        type="text/html"
+        style="width: 100%; max-width: 890px; height: 520px;"
+        src="https://www.youtube.com/embed/Ze41bcAkb4k?autoplay=1"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+
+      <p>
+        Conheça o <strong>Dr. Ivar Polesso</strong>, Delegado da Polícia Civil
+        <br />
+        de Várzea Grande e também dono e professor do IPO+.
+      </p>
+    </div>
+
+    <div class="dados-ebook">
+      <h3>
+        Faça o download do <strong>e-book</strong> sobre a nossa escola <br />
+        e com o conteúdo programático do <strong>ENEM 2020</strong>.
+      </h3>
+      <a
+        href="assets/pdf/e-book-ipo-mais-colegio-e-concursos.pdf"
+        title="E-book IPO+ Colégio e Concursos"
+        target="new"
+        >Baixar E-book</a
+      >
+    </div>
+
+    <div class="header-footer-localizacao">
+      <h2>A 3 minutos do Shopping de Várzea Grande!</h2>
+      <h4>Ambiente tranquilo e aconchegante.</h4>
+    </div>
+
+    <div class="footer">
+      <div class="center-footer">
+        <div class="col-logo">
+          <img
+            src="assets/images/logo-ipo-mais-footer.png"
+            alt="Logo IPO+ Footer"
+          />
+        </div>
+        <div class="col-endereco">
+          Av. Presidente Epitáfio Pessoa, 510 <br />
+          Várzea Grande - MT <br />
+          CEP: 78.125-005
+        </div>
+        <div class="col-atendimento">
+          <p>
+            Atendimento de seg. a sex., <br />
+            das 7h às 18h.
+          </p>
+          <div class="dados-fones">
+            <img src="assets/images/whatsapp.png" alt="" />
+            <p>
+              (65) 9.9203-1789 <br />
+              (65) 9.8122-6538
+            </p>
+          </div>
+        </div>
+        <div class="col-social">
+          <p>Nos acompanhe nas redes sociais:</p>
+          <div class="sociais">
+            <a
+              href="https://www.facebook.com/ipomais"
+              title="Facebook IPO+"
+              target="_blank"
+              ><img src="assets/images/facebook.png" alt="facebook ipo mais"
+            /></a>
+            <a
+              href="https://www.instagram.com/ipomais"
+              target="_blank"
+              title="Instagram IPO+"
+              ><img src="assets/images/instagram.png" alt="instagram ipo mais"
+            /></a>
+            <p>@ipomais</p>
+          </div>
+          <a href="https://ipomais.com.br" target="_blank"
+            >www.<strong>ipomais</strong>.com.br</a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
